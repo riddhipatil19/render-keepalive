@@ -12,5 +12,4 @@ jobs:
     steps:
       - name: Ping Render App
         run: curl -s https://job-portal-cj3n.onrender.com
-]
 
