@@ -2,12 +2,15 @@ name: Keep Render Alive
 
 on:
   schedule:
-    - cron: '*/10 * * * *'  # every 15 mins
+    - cron: '*/10 * * * *'  # every 10 mins
   workflow_dispatch:
-
+  repository_dispatch: # Allows external triggers (e.g. via cron-job.org)
+    types: [ manual-api-up ] # Custom event name
 jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
       - name: Ping Render App
         run: curl -s https://job-portal-cj3n.onrender.com
+]
+
